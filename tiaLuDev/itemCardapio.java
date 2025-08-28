@@ -24,7 +24,7 @@ public class itemCardapio {
         this.nome = nome;
     }
 
-    private static int proximoId = 0;
+    private static int proximoId = 1;
 
     public itemCardapio(String nome, float preco){
         this.preco = preco;

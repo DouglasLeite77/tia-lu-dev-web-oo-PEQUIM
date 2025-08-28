@@ -25,7 +25,7 @@ public class cliente {
         this.telefone = telefone;
     }
 
-    private static int proximoId = 0;
+    private static int proximoId = 1;
     
     public cliente(String nome, String telefone){
         this.telefone = telefone;

@@ -15,4 +15,10 @@ public class gerenciamentoClientes {
         this.listaClientes.add(c);
         System.out.println("Cliente adicionando com sucesso");
     }
+
+    public void listaClientes(){
+         for(cliente c : listaClientes){
+            System.out.println("Nome = " + c.getNome() + " | "  + " ID = " + c.getIdCliente());
+        }
+    }
 }

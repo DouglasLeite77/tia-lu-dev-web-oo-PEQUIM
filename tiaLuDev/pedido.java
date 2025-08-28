@@ -26,7 +26,7 @@ public class pedido {
         this.status = status;
     }
 
-    private static int proximoId = 0;
+    private static int proximoId = 1;
     
     public pedido(LocalDateTime data, String status){
         this.data = data;
