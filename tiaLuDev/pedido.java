@@ -10,6 +10,12 @@ public class pedido {
     private String status;
     private List<itemPedido> itens; 
     
+    public List<itemPedido> getItens() {
+        return itens;
+    }
+    public void setItens(List<itemPedido> itens) {
+        this.itens = itens;
+    }
     public int getIdPedido() {
         return idPedido;
     }
@@ -33,14 +39,19 @@ public class pedido {
         this.itens.add(i);
     }
 
+    public void descPedido(List<itemPedido> lista){
+        for(itemPedido i: lista){
+            System.out.println(i.getItem() + " " + i.getQuantidade());
+        }
+    }
+
     private static int proximoId = 1;
     
-    public pedido(){
+    public pedido(cliente c){
         this.data = LocalDateTime.now();
         this.status = "Pendente";
         this.idPedido = proximoId++;
         this.itens = new ArrayList<>();
-        
     }
 
     

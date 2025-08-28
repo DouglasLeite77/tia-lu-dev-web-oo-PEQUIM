@@ -21,4 +21,14 @@ public class gerenciamentoCardapio {
             System.out.println("Nome = " + i.getNome() + " | " + "preço = " + i.getPreco() + " | " + "ID = " + i.getIdItem());
         }
     }
+
+    public itemCardapio buscarItem(int id){
+        for(itemCardapio i: this.listaItens){
+            if(i.getIdItem() == id){
+                return i;
+            }
+        }
+
+        return null;
+    }
 }

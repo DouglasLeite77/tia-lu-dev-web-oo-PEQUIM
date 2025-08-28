@@ -12,13 +12,24 @@ public class main {
     cliente c1 = new cliente("bedo", "123123123");
     cliente c2 = new cliente("helto", "123123123");
     itemCardapio i1 = new itemCardapio("Queijo", 20);
-    itemPedido it1 = new itemPedido(i1, 2);
+    itemCardapio i2 = new itemCardapio("coca", 20);
     
     gerenciadorItens.addItem(i1);
+    gerenciadorItens.addItem(i2);
     gerenciadorItens.listaItens();
     gerenciadorClientes.addCliente(c1);
     gerenciadorClientes.addCliente(c2);
     gerenciadorClientes.listaClientes();
-    System.out.println(it1.getItem());
+    
+    gerenciadorPedido.addItemPedido(gerenciadorItens, gerenciadorClientes);
+
+    gerenciadorPedido.listaPedidos();
+
+
+
+
+
+
+
     }
 }
