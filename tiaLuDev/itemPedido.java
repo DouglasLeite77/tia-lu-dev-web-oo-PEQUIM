@@ -1,9 +1,16 @@
 package tiaLuDev;
 
 public class itemPedido {
+    private String idItem;
     private int quantidade;
     private float precoUnidade;
-    
+
+    public String getItem() {
+        return idItem;
+    }
+    public void setItem(String item) {
+        idItem = item;
+    }
     public int getQuantidade() {
         return quantidade;
     }
@@ -17,11 +24,10 @@ public class itemPedido {
         this.precoUnidade = precoUnidade;
     }
 
-    public itemPedido(int quantidade, float precoUnidade){
-        this.precoUnidade = precoUnidade;
+    public itemPedido(itemCardapio item, int quantidade){
+        this.idItem = item.getNome();
         this.quantidade = quantidade;
+        this.precoUnidade = item.getPreco();
     }
-
-
     
 }

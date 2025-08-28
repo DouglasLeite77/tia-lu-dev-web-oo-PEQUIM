@@ -1,11 +1,14 @@
 package tiaLuDev;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 public class pedido {
     private int idPedido;
     private LocalDateTime data;
     private String status;
+    private List<itemPedido> itens; 
     
     public int getIdPedido() {
         return idPedido;
@@ -26,12 +29,20 @@ public class pedido {
         this.status = status;
     }
 
+    public void addItem(itemPedido i){
+        this.itens.add(i);
+    }
+
     private static int proximoId = 1;
     
-    public pedido(LocalDateTime data, String status){
-        this.data = data;
-        this.status = status;
+    public pedido(){
+        this.data = LocalDateTime.now();
+        this.status = "Pendente";
         this.idPedido = proximoId++;
+        this.itens = new ArrayList<>();
+        
     }
+
+    
 
 }
