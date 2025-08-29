@@ -54,10 +54,9 @@ public class gerenciamentoPedido {
                 System.out.println("ID inválido");
             }
 
-            System.out.println("Adicionar mais itens?\\n" + //
-                                "Digite s para continuar ou n para sair");
+            System.out.println("Quer adicionar mais itens?");
+            System.out.println("Digite s para continuar ou n para sair");
             s = sc.nextLine();
-            System.out.println(s);
         }
 
         this.listaPedidos.add(novoPedido);
@@ -75,6 +74,7 @@ public class gerenciamentoPedido {
     public void atualizaStatus(){
         System.out.println("Qual o ID do pedido que deseja atualizar?");
         int idPedido = sc.nextInt();
+        Boolean nEncontrado = false;
 
         for(pedido p: listaPedidos){
             if(p.getIdPedido() == idPedido){
@@ -82,7 +82,7 @@ public class gerenciamentoPedido {
                 if(p.getStatus().equals("Aceito")){
                     p.setStatus("Preparando");
                     System.out.println("Status atualizado para: preparando");
-                }else if(p.getStatus().equals("preparando")){
+                }else if(p.getStatus().equals("Preparando")){
                     p.setStatus("Feito");
                     System.out.println("Status atualizado para: feito");
                 }else if(p.getStatus().equals("Feito")){
@@ -96,31 +96,73 @@ public class gerenciamentoPedido {
                     System.out.println("Status atualizado para: Entregue");
                 }else if(p.getStatus().equals("Entregue")){
                     System.out.println("Pedido ja foi entregue");
-                }else{
-                    System.out.println("Status invalido");
                 }
-
+                break;
             }else{
-                System.out.println("Pedido não encontrado");
+                 nEncontrado = true;
             }
+        }
+        if (nEncontrado) {
+            System.out.println("Pedido não encontrado");
         }
 
     }
 
-    public void listarPedidosStatus(){
+    public void listarPedidosPorStatus(){
         System.out.println("1 - aceito | 2- preparando | 3 - feito | 4 - aguardando entregador | 5 - saiu para entrega | 6 - entregue");
         int i = sc.nextInt();
 
-        if(i == 1){
-            for(pedido p : listaPedidos){
-                if(p.getStatus().equals("Aceito")){
+        switch(i){
+            case 1:
+                for(pedido p : listaPedidos){
+                    if(p.getStatus().equals("Aceito")){
                     System.out.println("Pedido de ID = " + p.getIdPedido() + ", com status atual em: " + p.getStatus() + " e realizado na data: " + p.getData());
-                p.descPedido(p.getItens());
+                    p.descPedido(p.getItens());
+                    }
                 }
-            }
+                break;
+            case 2:
+                for(pedido p : listaPedidos){
+                    if(p.getStatus().equals("Preparando")){
+                    System.out.println("Pedido de ID = " + p.getIdPedido() + ", com status atual em: " + p.getStatus() + " e realizado na data: " + p.getData());
+                    p.descPedido(p.getItens());
+                    }
+                }
+                break;
+            case 3:
+                for(pedido p : listaPedidos){
+                    if(p.getStatus().equals("Feito")){
+                    System.out.println("Pedido de ID = " + p.getIdPedido() + ", com status atual em: " + p.getStatus() + " e realizado na data: " + p.getData());
+                    p.descPedido(p.getItens());
+                    }
+                }
+                break;
+            case 4:
+                for(pedido p : listaPedidos){
+                    if(p.getStatus().equals("Aguardando entregador")){
+                    System.out.println("Pedido de ID = " + p.getIdPedido() + ", com status atual em: " + p.getStatus() + " e realizado na data: " + p.getData());
+                    p.descPedido(p.getItens());
+                    }
+                }
+                break;
+            case 5:
+                for(pedido p : listaPedidos){
+                    if(p.getStatus().equals("Saiu para entrega")){
+                    System.out.println("Pedido de ID = " + p.getIdPedido() + ", com status atual em: " + p.getStatus() + " e realizado na data: " + p.getData());
+                    p.descPedido(p.getItens());
+                    }
+                }
+                break;
+            case 6:
+                for(pedido p : listaPedidos){
+                    if(p.getStatus().equals("Entregue")){
+                    System.out.println("Pedido de ID = " + p.getIdPedido() + ", com status atual em: " + p.getStatus() + " e realizado na data: " + p.getData());
+                    p.descPedido(p.getItens());
+                    }
+                }
+                break;
+            default:
+            System.out.println("Status inválido");
         }
-
-        
     }
-    
 }
