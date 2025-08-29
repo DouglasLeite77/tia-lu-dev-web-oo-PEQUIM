@@ -9,9 +9,6 @@ public class cliente {
     public int getIdCliente() {
         return idCliente;
     }
-    public void setIdCliente(int idCliente) {
-        this.idCliente = idCliente;
-    }
     public String getNome() {
         return nome;
     }

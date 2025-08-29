@@ -14,9 +14,6 @@ public class itemCardapio {
     public int getIdItem() {
         return idItem;
     }
-    public void setIdItem(int idItem) {
-        this.idItem = idItem;
-    }
     public String getNome() {
         return nome;
     }

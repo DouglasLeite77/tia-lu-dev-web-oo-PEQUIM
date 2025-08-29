@@ -19,9 +19,6 @@ public class pedido {
     public int getIdPedido() {
         return idPedido;
     }
-    public void setIdPedido(int idPedido) {
-        this.idPedido = idPedido;
-    }
     public LocalDateTime getData() {
         return data;
     }
@@ -49,11 +46,9 @@ public class pedido {
     
     public pedido(cliente c){
         this.data = LocalDateTime.now();
-        this.status = "Pendente";
+        this.status = "Aceito";
         this.idPedido = proximoId++;
         this.itens = new ArrayList<>();
     }
-
     
-
 }

@@ -22,8 +22,9 @@ public class main {
     gerenciadorClientes.listaClientes();
     
     gerenciadorPedido.addItemPedido(gerenciadorItens, gerenciadorClientes);
+    gerenciadorPedido.addItemPedido(gerenciadorItens, gerenciadorClientes);
 
-    gerenciadorPedido.listaPedidos();
+    gerenciadorPedido.listarPedidosStatus();
 
 
 
