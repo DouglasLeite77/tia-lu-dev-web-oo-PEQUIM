@@ -5,11 +5,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class pedido {
+    private cliente cliente;
     private int idPedido;
     private LocalDateTime data;
     private String status;
     private List<itemPedido> itens; 
     
+    public cliente getCliente() {
+        return cliente;
+    }
     public List<itemPedido> getItens() {
         return itens;
     }
@@ -45,6 +49,7 @@ public class pedido {
     private static int proximoId = 1;
     
     public pedido(cliente c){
+        this.cliente = c;
         this.data = LocalDateTime.now();
         this.status = "Aceito";
         this.idPedido = proximoId++;

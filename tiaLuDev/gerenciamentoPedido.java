@@ -165,4 +165,39 @@ public class gerenciamentoPedido {
             System.out.println("Status inválido");
         }
     }
+
+    public void gerarRelatorioSimplificado(){
+        int totalPedidos = this.listaPedidos.size();
+        float valorArrecadado = 0.0f;
+
+        for(pedido p: this.listaPedidos){
+            for(itemPedido item: p.getItens()){
+                valorArrecadado += item.getPrecoUnidade() * item.getQuantidade();
+            }
+        }
+
+        System.out.println("Quantidade total de pedidos: " + totalPedidos);
+        System.out.println("Valor total arrecadado: R$" + valorArrecadado);
+    }
+
+    public void gerarRelatorioDetalhado(){
+        for(pedido p: this.listaPedidos){
+            float valortotalPedido = 0.0f;
+
+        System.out.println("Pedido ID: " + p.getIdPedido());
+        System.out.println("Cliente: " + p.getCliente().getNome());
+
+            for(itemPedido i: p.getItens()){
+                float stotal = i.getPrecoUnidade() * i.getQuantidade();
+
+                valortotalPedido += stotal;
+
+                System.out.println("    - " + i.getItem() + " | Quantidade: " + i.getQuantidade() + " | Preço unitário: R$" + i.getPrecoUnidade() + " | Subtotal: R$" + stotal);
+            }
+
+        System.out.println("  Valor total do pedido: R$" + valortotalPedido);
+        }
+    }
+
+
 }

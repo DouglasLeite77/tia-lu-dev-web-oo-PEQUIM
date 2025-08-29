@@ -27,6 +27,8 @@ public class main {
     gerenciadorPedido.atualizaStatus();
 
     gerenciadorPedido.listarPedidosPorStatus();
+    gerenciadorPedido.gerarRelatorioSimplificado();
+    gerenciadorPedido.gerarRelatorioDetalhado();
 
 
 
