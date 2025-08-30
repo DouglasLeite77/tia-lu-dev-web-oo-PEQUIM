@@ -1,40 +1,74 @@
 package tiaLuDev;
 
+import java.util.Scanner;
+
+
 public class main {
 
-    public static void main(String[] args){
+     public static void exibirMenu(){
+        System.out.println("--- MENU PRINCIPAL ---");
+        System.out.println("1. Registra novo cliente");
+        System.out.println("2. Fazer um pedido");
+        System.out.println("3. Registrar um novo item ao cardapio");
+        System.out.println("4. Relatórios");
+        System.out.println("5. Sair");
+        System.out.print("Escolha uma opção: ");
+    };
 
+    
+
+    public static void main(String[] args){
+    Scanner sc = new Scanner(System.in);
     gerenciamentoClientes gerenciadorClientes = new gerenciamentoClientes();
     gerenciamentoCardapio gerenciadorItens = new gerenciamentoCardapio();
     gerenciamentoPedido gerenciadorPedido = new gerenciamentoPedido();
 
 
-    cliente c1 = new cliente("bedo", "123123123");
-    cliente c2 = new cliente("helto", "123123123");
-    itemCardapio i1 = new itemCardapio("Queijo", 20);
-    itemCardapio i2 = new itemCardapio("coca", 20);
-    
-    gerenciadorItens.addItem(i1);
-    gerenciadorItens.addItem(i2);
-    gerenciadorItens.listaItens();
-    gerenciadorClientes.addCliente(c1);
-    gerenciadorClientes.addCliente(c2);
-    gerenciadorClientes.listaClientes();
-    
-    gerenciadorPedido.addItemPedido(gerenciadorItens, gerenciadorClientes);
-    gerenciadorPedido.addItemPedido(gerenciadorItens, gerenciadorClientes);
-    gerenciadorPedido.atualizaStatus();
-    gerenciadorPedido.atualizaStatus();
+    boolean on = true;
 
-    gerenciadorPedido.listarPedidosPorStatus();
-    gerenciadorPedido.gerarRelatorioSimplificado();
-    gerenciadorPedido.gerarRelatorioDetalhado();
+    while (on) {
+        exibirMenu();
+        int escolha = sc.nextInt();
+        sc.nextLine();
 
-
-
-
-
-
+        switch (escolha) {
+            case 1:
+                gerenciadorClientes.criarCliente();
+                break;
+            case 2:
+                gerenciadorPedido.addItemPedido(gerenciadorClientes, gerenciadorItens);
+                break;
+            case 3:
+                gerenciadorItens.addItem();
+                break;
+            case 4:
+                System.out.println("1. Relatorio simplificado");
+                System.out.println("2. Relatorio detalhado");
+                System.out.println("3. Sair");
+                int opção = sc.nextInt();
+                boolean x = true;
+                while(x){
+                    switch (opção) {
+                        case 1:
+                            gerenciadorPedido.gerarRelatorioSimplificado();
+                            break;
+                        case 2:
+                            gerenciadorPedido.gerarRelatorioDetalhado();   
+                        case 3:
+                        x = false;                 
+                        default:
+                            System.out.println("Opção invalidade");
+                    }
+                    break;
+                }
+            case 5:
+                on = false;
+                System.out.println("Finalizando aplicação");
+                break;
+            default:
+                System.out.println("Opção inválida. Tente novamente");
+        }
 
     }
+}
 }

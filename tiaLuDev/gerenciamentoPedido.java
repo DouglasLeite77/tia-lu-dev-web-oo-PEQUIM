@@ -12,11 +12,10 @@ public class gerenciamentoPedido {
         this.listaPedidos = new ArrayList<>();
     }
 
-    public void addItemPedido(gerenciamentoCardapio gc, gerenciamentoClientes gcli){
+    public void addItemPedido(gerenciamentoClientes gcli,gerenciamentoCardapio gc){
         System.out.println("Digite o id do cliente");
         int clientex = sc.nextInt();
-        sc.nextLine();
-        
+        System.out.println(clientex);
         cliente clientesel = null;
 
         for(cliente c: gcli.clientescad()){

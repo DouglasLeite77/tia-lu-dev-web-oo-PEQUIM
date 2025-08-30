@@ -2,17 +2,25 @@ package tiaLuDev;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class gerenciamentoCardapio {
     private List<itemCardapio> listaItens;
+    public Scanner sc = new Scanner(System.in);
 
 
     public gerenciamentoCardapio(){
         this.listaItens = new ArrayList<>();
     }
 
-    public void addItem(itemCardapio i){
-        this.listaItens.add(i);
+    public void addItem(){
+        System.out.println("Digite o nome do item");
+        String nome = sc.nextLine();
+        System.out.println("Digite o preço");
+        float preco = sc.nextFloat();
+        itemCardapio novoItemCardapio = new itemCardapio(nome, preco);
+
+        this.listaItens.add(novoItemCardapio);
         System.out.println("Item adicionando com sucesso");
     }
 
