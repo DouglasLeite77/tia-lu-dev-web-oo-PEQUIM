@@ -42,7 +42,7 @@ public class pedido {
 
     public void descPedido(List<itemPedido> lista){
         for(itemPedido i: lista){
-            System.out.println(i.getItem() + " " + i.getQuantidade());
+            System.out.println("item: " + i.getItem() + " | " + "Quantidade: " + i.getQuantidade());
         }
     }
 

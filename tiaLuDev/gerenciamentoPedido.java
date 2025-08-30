@@ -15,7 +15,6 @@ public class gerenciamentoPedido {
     public void addItemPedido(gerenciamentoClientes gcli,gerenciamentoCardapio gc){
         System.out.println("Digite o id do cliente");
         int clientex = sc.nextInt();
-        System.out.println(clientex);
         cliente clientesel = null;
 
         for(cliente c: gcli.clientescad()){
@@ -81,20 +80,26 @@ public class gerenciamentoPedido {
                 if(p.getStatus().equals("Aceito")){
                     p.setStatus("Preparando");
                     System.out.println("Status atualizado para: preparando");
+                    break;
                 }else if(p.getStatus().equals("Preparando")){
                     p.setStatus("Feito");
                     System.out.println("Status atualizado para: feito");
+                    break;
                 }else if(p.getStatus().equals("Feito")){
                     p.setStatus("Aguardando entregador");
                     System.out.println("Status atualizado para: aguardando entregador");
+                    break;
                 }else if(p.getStatus().equals("Aguardando entregador")){
                     p.setStatus("Saiu para entrega");
                     System.out.println("Status atualizado para: saiu para entrega");
+                    break;
                 }else if(p.getStatus().equals("Saiu para entrega")){
                     p.setStatus("Entregue");
                     System.out.println("Status atualizado para: Entregue");
+                    break;
                 }else if(p.getStatus().equals("Entregue")){
                     System.out.println("Pedido ja foi entregue");
+                    break;
                 }
                 break;
             }else{
